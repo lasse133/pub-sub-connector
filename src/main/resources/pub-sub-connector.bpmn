@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "pub-sub-connector",
   "id": "33041e74-7a5f-4b13-8104-39b97a34cef4",
-  "version": 1729689785463,
+  "version": 1731072936633,
   "appliesTo": [
     "bpmn:Task"
   ],

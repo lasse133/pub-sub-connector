@@ -35,6 +35,17 @@
     <plugin.version.maven-surefire-plugin>3.2.2</plugin.version.maven-surefire-plugin>
   </properties>
 
+ <dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>libraries-bom</artifactId>
+      <version>26.48.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>io.camunda.connector</groupId>
@@ -52,6 +63,16 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${version.slf4j}</version>
+    </dependency>
+    <dependency>
+    <groupId>io.camunda.connector</groupId>
+    <artifactId>spring-boot-starter-camunda-connectors</artifactId>
+    <version>${version.connectors}</version>
+    </dependency>
+    <dependency>
+    <groupId>com.google.cloud</groupId>
+    <artifactId>google-cloud-pubsub</artifactId>
+    <version>1.113.4</version>
     </dependency>
 
     <!-- Element template generator annotations (compile-time only) -->

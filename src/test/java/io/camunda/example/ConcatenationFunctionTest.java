@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
-import io.camunda.example.dto.ConcatenationConnectorRequest;
-import io.camunda.example.dto.ConcatenationConnectorResult;
+import io.camunda.example.dto.PubConnectorRequest;
+import io.camunda.example.dto.PubSubConnectorResult;
 import org.junit.jupiter.api.Test;
 
 public class ConcatenationFunctionTest {
@@ -15,9 +15,9 @@ public class ConcatenationFunctionTest {
   @Test
   void shouldReturnExpectedResultWhenExecute() throws Exception {
     // given
-    var input = new ConcatenationConnectorRequest("my_input1_value","my_input2_value");
+    var input = new PubConnectorRequest("my_input1_value", null, null, null, null, null);
 
-    var function = new ConcatenationConnectorFunction();
+    var function = new PubConnectorFunction();
     var context = OutboundConnectorContextBuilder.create()
       .variables(input)
       .build();
@@ -25,7 +25,7 @@ public class ConcatenationFunctionTest {
     var result = function.execute(context);
     // then
     assertThat(result)
-      .isInstanceOf(ConcatenationConnectorResult.class)
+      .isInstanceOf(PubSubConnectorResult.class)
       .extracting("concatenationResult")
       .isEqualTo("my_input1_value my_input2_value");
   }
